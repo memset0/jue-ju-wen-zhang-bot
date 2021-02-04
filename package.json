@@ -1,0 +1,26 @@
+{
+  "name": "jue-ju-wen-zhang-bot",
+  "version": "1.0.0",
+  "description": "抄袭啊，不讲武德！",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memset0/jue-ju-wen-zhang-bot.git"
+  },
+  "author": "memset0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/memset0/jue-ju-wen-zhang-bot/issues"
+  },
+  "homepage": "https://github.com/memset0/jue-ju-wen-zhang-bot#readme",
+  "dependencies": {
+    "koishi": "^2.5.1",
+    "koishi-adapter-cqhttp": "^1.0.8",
+    "koishi-core": "^2.5.1",
+    "lodash": "^4.17.20",
+    "yaml": "^1.10.0"
+  }
+}

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as YAML from 'YAML';
+import * as YAML from 'yaml';
 
 const configDir = path.join(__dirname, './config.yml');
 const configParser = YAML.parse;

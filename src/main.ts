@@ -118,7 +118,7 @@ export default async function (app: App) {
 				session.$send('纳尼，你群尚无在写绝句文章！');
 				return;
 			}
-			if (!article.countBack(session.userId)) {
+			if (!article.countBack(session.userId) && session.userId != config.master) {
 				session.$send('最后一条不是你添加的绝句哦');
 				return;
 			}

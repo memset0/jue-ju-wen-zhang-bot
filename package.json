@@ -4,7 +4,7 @@
   "description": "抄袭啊，不讲武德！",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "serve": "ts-node app.ts"
   },
   "repository": {
     "type": "git",

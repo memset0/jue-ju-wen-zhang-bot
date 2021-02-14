@@ -1,5 +1,8 @@
-import config from '../config';
+import * as fs from 'fs';
+import * as path from 'path';
 import { App, Session } from 'koishi-core';
+
+import config from '../config';
 
 let data = {};
 
@@ -176,9 +179,26 @@ export default async function (app: App) {
 				session.$send('纳尼，你群尚无在写绝句文章！');
 				return;
 			}
+			if (!title || !title.length) {
+				session.$send('文章必须要有标题');
+				return;
+			}
 			setArticle(session.groupId, null);
 			article.title = title;
 			console.log(article.toJSON());
+			session.$send(article.toMessage());
+			fs.mkdirSync(path.join(__dirname, '../log', String(session.groupId)), { recursive: true });
+			fs.writeFileSync(path.join(__dirname, '../log', String(session.groupId), Date.now() + '.json'), article.toJSON());
+		});
+
+	app.group()
+		.command('jjwz.show', '展示当前绝句文章')
+		.action(async ({ session }): Promise<void> => {
+			let article = getArticle(session.groupId);
+			if (!article) {
+				session.$send('纳尼，你群尚无在写绝句文章！');
+				return;
+			}
 			session.$send(article.toMessage());
 		});
 };
